@@ -1,0 +1,48 @@
+﻿@model CodeFirstColor.Models.Product
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.js"></script>
+</head>
+<body>
+   <div class="container">
+       <div class="row">
+           <div class="col-md-12">
+               <div>
+                   @Html.DisplayNameFor(p => p.ProductName)
+                   <div>
+                       @Html.DisplayFor(p => p.ProductName)
+                   </div>
+               </div>
+               <div>
+                   @Html.DisplayNameFor(p => p.MfgName)
+                   <div>
+                       @Html.DisplayFor(p => p.MfgName)
+                   </div>
+               </div>
+               <div>
+                   @Html.DisplayNameFor(p => p.Price)
+                   <div>
+                       @Html.DisplayFor(p => p.Price)
+                   </div>
+               </div>
+               <h4>Colors</h4>
+               <ul>
+                   @foreach (var temp in Model.ProductColors)
+                   {
+                       <li>@temp.Color.ColorName </li>
+                   }
+               </ul>
+           </div>
+       </div>
+   </div>
+</body>
+</html>

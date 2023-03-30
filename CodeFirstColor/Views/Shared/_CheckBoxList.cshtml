@@ -1,0 +1,19 @@
+﻿@model IEnumerable<CodeFirstColor.Models.CheckBoxVm>
+@{
+    Layout = null;
+}
+
+
+<div style="height:100px;background-color:darkgray;width:300px;">
+    @foreach (var temp in Model)
+    {
+        if (temp.IsSelected)
+        {
+            <input name="chk" type="checkbox" checked="checked" value="@temp.Value" /> @temp.Text <br />
+        }
+        else
+        {
+            <input name="chk" type="checkbox" value="@temp.Value " />@temp.Text<br />
+        }
+    }
+</div>

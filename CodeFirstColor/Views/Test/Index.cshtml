@@ -1,0 +1,64 @@
+﻿@model IEnumerable<CodeFirstColor.Models.VMColor>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.js"></script>
+</head>
+<body>
+   <div class="container">
+       <div class="row">
+           <div class="col-md-12">
+               <p>
+                   @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+
+               </p>
+               @{ int ProductId = 1;}
+               <table class="table table-bordered ">
+                   <tr>
+                       <th>
+                           ProductId
+                       </th>
+                       <th>
+                           @Html.DisplayNameFor(model => model.ProductName)
+                       </th>
+                       <th>
+                           @Html.DisplayNameFor(model => model.ColorCount)
+                       </th>
+                      
+                   </tr>
+
+                   @foreach (var item in Model)
+                   {
+                       <tr>
+                           <td>
+                               @ProductId
+                           </td>
+                           <td>
+                               @Html.DisplayFor(modelItem => item.ProductName)
+                           </td>
+                           <td>
+                               @Html.DisplayFor(modelItem => item.ColorCount)
+                           </td>
+
+                           <td>@Html.ActionLink("Edit", "Edit", new { id = item.ProductId })</td>
+                           <td>@Html.ActionLink("Details", "Details", new { id = item.ProductId })</td>
+                           <td>@Html.ActionLink("Delete", "Delete", new { id = item.ProductId })</td>
+                       </tr>
+                       ProductId++;
+                   }
+
+               </table>
+           </div>
+       </div>
+   </div>
+</body>
+</html>
